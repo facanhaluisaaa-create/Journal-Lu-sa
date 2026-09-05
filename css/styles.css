@@ -4,6 +4,15 @@
    Change --accent to re-color the whole site.
    ============================================================ */
 
+/* Masthead script font, self-hosted so the logo never falls back. */
+@font-face {
+  font-family: "Lavishly Yours";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/lavishly-yours-latin.woff2") format("woff2");
+}
+
 :root {
   --paper: #f7f2e7;
   --paper-deep: #efe7d6;
@@ -14,6 +23,7 @@
   --accent: #8a1e1e;
 
   --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-logo: "Lavishly Yours", "Playfair Display", Georgia, cursive;
   --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
   --font-ui: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
@@ -128,11 +138,12 @@ img { max-width: 100%; display: block; }
 
 .masthead__title {
   margin: 0;
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(2.6rem, 7vw, 5rem);
+  font-family: var(--font-logo);
+  font-weight: 400;
+  font-size: clamp(3.4rem, 9vw, 6.5rem);
   letter-spacing: 0.01em;
-  line-height: 1;
+  line-height: 1.15; /* script ascenders/descenders need breathing room */
+  padding: 0 0.2em;  /* keep swashes from clipping at the edges */
 }
 
 .masthead__title a { text-decoration: none; }
@@ -542,9 +553,9 @@ img { max-width: 100%; display: block; }
 
 .footer__name {
   margin: 0 0 6px;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.2rem;
+  font-family: var(--font-logo);
+  font-weight: 400;
+  font-size: 1.9rem;
 }
 
 .footer__meta {
