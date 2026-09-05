@@ -1,0 +1,26 @@
+{
+  "site": {
+    "name": "The Lu-Sa Journal",
+    "tagline": "Notes, essays & observations",
+    "footerText": "Published independently. All rights reserved."
+  },
+  "categories": [],
+  "posts": [],
+  "_instructions": "HOW TO ADD A POST: 1) Add your category names as strings inside 'categories', e.g. [\"Essays\", \"Travel\"]. 2) Copy the '_postTemplate' object below, paste it inside the 'posts' array, and fill in the fields. 3) Set 'featured': true on exactly one post to pin it as the main story on the home page. Keys starting with an underscore are ignored by the site.",
+  "_postTemplate": {
+    "id": "unique-slug-for-this-post",
+    "title": "",
+    "subtitle": "",
+    "category": "",
+    "author": "",
+    "date": "YYYY-MM-DD",
+    "image": "",
+    "imageCaption": "",
+    "excerpt": "",
+    "content": [
+      "First paragraph of the article.",
+      "Second paragraph of the article."
+    ],
+    "featured": false
+  }
+}
