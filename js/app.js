@@ -1,5 +1,5 @@
 /* ============================================================
-   The Lu-Sa Journal — app.js
+   Façanha’s Journal — app.js
    Loads data/posts.json, renders the home page (featured story
    + latest grid), category filter, keyword search, single
    article view (hash routing) and the newsletter form.
@@ -36,7 +36,7 @@
         subtitle:
           "Why the slow, private act of writing things down still matters — perhaps now more than ever.",
         category: "Essays",
-        author: "Lu-Sa",
+        author: "Façanha",
         date: "2026-09-01",
         image: placeholderImage("Featured image placeholder", "#e9dfc8"),
         imageCaption: "Replace this placeholder by setting the “image” field of your post.",
@@ -54,7 +54,7 @@
         title: "The Secret Life of Café Tables",
         subtitle: "",
         category: "Culture",
-        author: "Lu-Sa",
+        author: "Façanha",
         date: "2026-08-28",
         image: placeholderImage("Image placeholder", "#e6dcc4"),
         imageCaption: "",
@@ -71,7 +71,7 @@
         title: "Notes from a Night Train",
         subtitle: "",
         category: "Travel",
-        author: "Lu-Sa",
+        author: "Façanha",
         date: "2026-08-21",
         image: placeholderImage("Image placeholder", "#ece2cb"),
         imageCaption: "",
@@ -88,7 +88,7 @@
         title: "In Defense of Rereading",
         subtitle: "",
         category: "Essays",
-        author: "Lu-Sa",
+        author: "Façanha",
         date: "2026-08-14",
         image: "",
         imageCaption: "",
@@ -105,7 +105,7 @@
         title: "A Short Inventory of Small Things",
         subtitle: "",
         category: "Notes",
-        author: "Lu-Sa",
+        author: "Façanha",
         date: "2026-08-07",
         image: "",
         imageCaption: "",
@@ -122,7 +122,7 @@
         title: "Sunday at the Old Market",
         subtitle: "",
         category: "Travel",
-        author: "Lu-Sa",
+        author: "Façanha",
         date: "2026-07-30",
         image: placeholderImage("Image placeholder", "#e9dfc8"),
         imageCaption: "",
@@ -141,7 +141,7 @@
 
   var state = {
     site: {
-      name: "The Lu-Sa Journal",
+      name: "Façanha’s Journal",
       tagline: "Notes, essays & observations",
       footerText: "Published independently. All rights reserved."
     },

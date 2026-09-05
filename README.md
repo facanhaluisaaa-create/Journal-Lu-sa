@@ -1,4 +1,4 @@
-# The Lu-Sa Journal
+# Façanha’s Journal
 
 A classic-newspaper-style journal website — pure HTML/CSS/JS, no build step, no framework.
 
@@ -34,7 +34,7 @@ All content is managed in `data/posts.json` — you never need to touch the layo
   "title": "My First Post",
   "subtitle": "An optional deck line under the headline.",
   "category": "Essays",
-  "author": "Lu-Sa",
+  "author": "Façanha",
   "date": "2026-09-05",
   "image": "https://example.com/photo.jpg",
   "imageCaption": "Optional caption.",
