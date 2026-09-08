@@ -28,47 +28,47 @@
   }
 
   var SAMPLE_DATA = {
-    categories: ["Essays", "Culture", "Travel", "Notes"],
+    categories: ["Fashion", "Travel", "Culture", "Politics", "Business"],
     posts: [
       {
-        id: "sample-on-keeping-a-journal",
-        title: "On Keeping a Journal in a Distracted Age",
+        id: "sample-quiet-return-of-tailoring",
+        title: "The Quiet Return of Tailoring",
         subtitle:
-          "Why the slow, private act of writing things down still matters — perhaps now more than ever.",
-        category: "Essays",
+          "Why a well-cut blazer says more this season than any logo ever could.",
+        category: "Fashion",
         author: "Façanha",
         date: "2026-09-01",
         image: placeholderImage("Featured image placeholder", "#e9dfc8"),
         imageCaption: "Replace this placeholder by setting the “image” field of your post.",
         excerpt:
-          "Somewhere between the notification and the scroll, we stopped narrating our own days. A journal is a quiet act of resistance: a page that asks nothing of you except honesty.",
+          "After years of loud prints and louder logos, the sharpest statement on the street is a shoulder that actually fits. Tailoring is back — and this time it is personal.",
         content: [
-          "Somewhere between the notification and the scroll, we stopped narrating our own days. A journal is a quiet act of resistance: a page that asks nothing of you except honesty.",
-          "This is sample text, included only so you can see how an article page looks. Open data/posts.json, copy the post template, and write your first real entry — this sample will step aside the moment you do.",
-          "Each post supports a title, a subtitle, a category, an author, a date, an optional image with caption, a short excerpt for the home page, and as many paragraphs of content as you like."
+          "After years of loud prints and louder logos, the sharpest statement on the street is a shoulder that actually fits. Tailoring is back — and this time it is personal.",
+          "This is sample text, included only so you can see how an article page looks. Send your first real article and this sample will step aside the moment it is published.",
+          "Each post supports a title, a subtitle, a category, an author, a date, an optional image with caption, a short excerpt for the front page, and as many paragraphs as you like."
         ],
         featured: true
       },
       {
-        id: "sample-cafe-tables",
-        title: "The Secret Life of Café Tables",
+        id: "sample-ode-to-the-white-shirt",
+        title: "An Ode to the White Shirt",
         subtitle: "",
-        category: "Culture",
+        category: "Fashion",
         author: "Façanha",
         date: "2026-08-28",
         image: placeholderImage("Image placeholder", "#e6dcc4"),
         imageCaption: "",
         excerpt:
-          "Every café table is a small stage. Observations collected over three months of eavesdropping, in the most affectionate sense of the word.",
+          "Trends arrive and leave by the season. The white shirt stays — on runways, in offices, at midnight. A love letter to the one piece that survives every cycle.",
         content: [
-          "Every café table is a small stage. Observations collected over three months of eavesdropping, in the most affectionate sense of the word.",
-          "This is sample content. Replace it with your own writing in data/posts.json."
+          "Trends arrive and leave by the season. The white shirt stays — on runways, in offices, at midnight. A love letter to the one piece that survives every cycle.",
+          "This is sample content. It will be replaced by your own writing."
         ],
         featured: false
       },
       {
-        id: "sample-night-train",
-        title: "Notes from a Night Train",
+        id: "sample-packing-light-for-paris",
+        title: "Packing Light for Paris",
         subtitle: "",
         category: "Travel",
         author: "Façanha",
@@ -76,61 +76,61 @@
         image: placeholderImage("Image placeholder", "#ece2cb"),
         imageCaption: "",
         excerpt:
-          "Twelve hours, one window, and the particular kind of thinking that only happens between stations.",
+          "One carry-on, twelve looks, seven days. On the discipline of choosing well — and what a suitcase reveals about its owner.",
         content: [
-          "Twelve hours, one window, and the particular kind of thinking that only happens between stations.",
-          "This is sample content. Replace it with your own writing in data/posts.json."
+          "One carry-on, twelve looks, seven days. On the discipline of choosing well — and what a suitcase reveals about its owner.",
+          "This is sample content. It will be replaced by your own writing."
         ],
         featured: false
       },
       {
-        id: "sample-rereading",
-        title: "In Defense of Rereading",
+        id: "sample-cinema-of-costume",
+        title: "The Cinema of Costume",
         subtitle: "",
-        category: "Essays",
+        category: "Culture",
         author: "Façanha",
         date: "2026-08-14",
         image: "",
         imageCaption: "",
         excerpt:
-          "The book does not change; the reader does. On returning to old pages and finding new rooms in them.",
+          "Before a character says a word, their wardrobe has already spoken. What film costume design teaches us about the stories clothes tell.",
         content: [
-          "The book does not change; the reader does. On returning to old pages and finding new rooms in them.",
-          "This is sample content. Replace it with your own writing in data/posts.json."
+          "Before a character says a word, their wardrobe has already spoken. What film costume design teaches us about the stories clothes tell.",
+          "This is sample content. It will be replaced by your own writing."
         ],
         featured: false
       },
       {
-        id: "sample-small-things",
-        title: "A Short Inventory of Small Things",
+        id: "sample-who-makes-your-clothes",
+        title: "Who Makes Your Clothes?",
         subtitle: "",
-        category: "Notes",
+        category: "Politics",
         author: "Façanha",
         date: "2026-08-07",
         image: "",
         imageCaption: "",
         excerpt:
-          "The smell of rain on hot pavement, the first sip of morning coffee, a letter answered by hand. A list, kept for safekeeping.",
+          "Every garment has a supply chain, and every supply chain is a political choice. Following one dress from cotton field to checkout.",
         content: [
-          "The smell of rain on hot pavement, the first sip of morning coffee, a letter answered by hand. A list, kept for safekeeping.",
-          "This is sample content. Replace it with your own writing in data/posts.json."
+          "Every garment has a supply chain, and every supply chain is a political choice. Following one dress from cotton field to checkout.",
+          "This is sample content. It will be replaced by your own writing."
         ],
         featured: false
       },
       {
-        id: "sample-market-sunday",
-        title: "Sunday at the Old Market",
+        id: "sample-business-of-being-a-brand",
+        title: "The Business of Being a Brand",
         subtitle: "",
-        category: "Travel",
+        category: "Business",
         author: "Façanha",
         date: "2026-07-30",
         image: placeholderImage("Image placeholder", "#e9dfc8"),
         imageCaption: "",
         excerpt:
-          "Between the fruit stalls and the secondhand books, a whole city rehearses its week ahead.",
+          "From atelier to algorithm: how small labels grow an audience — and a margin — without losing their soul along the way.",
         content: [
-          "Between the fruit stalls and the secondhand books, a whole city rehearses its week ahead.",
-          "This is sample content. Replace it with your own writing in data/posts.json."
+          "From atelier to algorithm: how small labels grow an audience — and a margin — without losing their soul along the way.",
+          "This is sample content. It will be replaced by your own writing."
         ],
         featured: false
       }
@@ -203,7 +203,8 @@
     if (posts.length === 0) {
       state.usingSamples = true;
       posts = SAMPLE_DATA.posts;
-      categories = SAMPLE_DATA.categories;
+      // The real category list from posts.json still wins in sample mode.
+      if (categories.length === 0) categories = SAMPLE_DATA.categories;
     }
 
     // Categories present on posts but missing from the list still get a nav entry.
