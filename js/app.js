@@ -28,7 +28,7 @@
   }
 
   var SAMPLE_DATA = {
-    categories: ["Fashion", "Travel", "Culture", "Study", "Business"],
+    categories: ["Fashion", "Culture", "Business"],
     posts: [
       {
         id: "sample-quiet-return-of-tailoring",
@@ -70,7 +70,7 @@
         id: "sample-packing-light-for-paris",
         title: "Packing Light for Paris",
         subtitle: "",
-        category: "Travel",
+        category: "Culture",
         author: "Façanha",
         date: "2026-08-21",
         image: placeholderImage("Image placeholder", "#ece2cb"),
@@ -104,7 +104,7 @@
         id: "sample-semester-in-margin-notes",
         title: "A Semester in Margin Notes",
         subtitle: "",
-        category: "Study",
+        category: "Culture",
         author: "Façanha",
         date: "2026-08-07",
         image: "",
