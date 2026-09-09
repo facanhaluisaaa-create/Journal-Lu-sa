@@ -28,7 +28,7 @@
   }
 
   var SAMPLE_DATA = {
-    categories: ["Fashion", "Travel", "Culture", "Politics", "Business"],
+    categories: ["Fashion", "Travel", "Culture", "Study", "Business"],
     posts: [
       {
         id: "sample-quiet-return-of-tailoring",
@@ -101,18 +101,18 @@
         featured: false
       },
       {
-        id: "sample-who-makes-your-clothes",
-        title: "Who Makes Your Clothes?",
+        id: "sample-semester-in-margin-notes",
+        title: "A Semester in Margin Notes",
         subtitle: "",
-        category: "Politics",
+        category: "Study",
         author: "Façanha",
         date: "2026-08-07",
         image: "",
         imageCaption: "",
         excerpt:
-          "Every garment has a supply chain, and every supply chain is a political choice. Following one dress from cotton field to checkout.",
+          "What a highlighter, a library seat and a well-kept planner taught me about paying attention. Notes on studying — and on learning how to learn.",
         content: [
-          "Every garment has a supply chain, and every supply chain is a political choice. Following one dress from cotton field to checkout.",
+          "What a highlighter, a library seat and a well-kept planner taught me about paying attention. Notes on studying — and on learning how to learn.",
           "This is sample content. It will be replaced by your own writing."
         ],
         featured: false
