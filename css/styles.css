@@ -271,7 +271,7 @@ img { max-width: 100%; display: block; }
 
 .featured__figure img {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3; /* fashion imagery is mostly portrait; 4:3 keeps faces in frame */
   object-fit: cover;
   filter: sepia(0.12);
 }
@@ -364,7 +364,7 @@ img { max-width: 100%; display: block; }
 
 .card__img {
   width: 100%;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   margin-bottom: 14px;
   filter: sepia(0.12);
@@ -443,7 +443,7 @@ img { max-width: 100%; display: block; }
 
 .article__figure img {
   width: 100%;
-  max-height: 480px;
+  max-height: 640px;
   object-fit: cover;
   filter: sepia(0.12);
 }
@@ -464,6 +464,61 @@ img { max-width: 100%; display: block; }
 }
 
 .article__body p { margin: 0 0 1.4em; }
+
+.article__h2 {
+  margin: 2.4em 0 0.2em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.7rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.article__h2::before {
+  content: "";
+  display: block;
+  width: 48px;
+  margin: 0 auto 18px;
+  border-top: 3px double var(--rule-strong);
+}
+
+.article__deck {
+  margin: 0 0 1.4em;
+  text-align: center;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.article__inline {
+  /* Break out of the text measure: plates run wider than the prose column. */
+  width: min(900px, calc(100vw - 48px));
+  margin: 1.8em 0 2.2em 50%;
+  transform: translateX(-50%);
+}
+
+.article__inline img {
+  width: 100%;
+  filter: sepia(0.08);
+}
+
+.article__inline figcaption {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: var(--ink-soft);
+  margin-top: 8px;
+  text-align: center;
+}
+
+.article__quote {
+  margin: 1.8em 0;
+  padding: 0.4em 0 0.4em 1.2em;
+  border-left: 3px solid var(--accent);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.35rem;
+  line-height: 1.35;
+  color: var(--ink);
+}
 
 .article__body > p:first-child::first-letter {
   font-family: var(--font-display);
