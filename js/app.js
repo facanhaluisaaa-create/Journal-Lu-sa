@@ -229,6 +229,8 @@
   }
 
   function loadData() {
+    // A single-file build (e.g. the preview artifact) inlines the data instead.
+    if (window.JOURNAL_DATA) return Promise.resolve(window.JOURNAL_DATA).then(normalizeData);
     return fetch("data/posts.json", { cache: "no-store" })
       .then(function (res) {
         if (!res.ok) throw new Error("HTTP " + res.status);
@@ -296,12 +298,23 @@
         post.excerpt,
         post.author,
         post.category,
-        Array.isArray(post.content) ? post.content.join(" ") : post.content
+        contentText(post.content)
       ]
         .join(" ")
         .toLowerCase();
       return haystack.indexOf(q) !== -1;
     });
+  }
+
+  function contentText(content) {
+    if (!Array.isArray(content)) return String(content || "");
+    return content
+      .map(function (b) {
+        if (typeof b === "string") return b;
+        if (!b || typeof b !== "object") return "";
+        return [b.heading, b.subtitle, b.quote, b.caption].filter(Boolean).join(" ");
+      })
+      .join(" ");
   }
 
   function renderHome() {
@@ -412,7 +425,7 @@
       return;
     }
 
-    var paragraphs = Array.isArray(post.content) ? post.content : [post.content].filter(Boolean);
+    var blocks = Array.isArray(post.content) ? post.content : [post.content].filter(Boolean);
     var figure = post.image
       ? '<figure class="article__figure"><img src="' + esc(post.image) + '" alt="' + esc(post.title) + '" />' +
         (post.imageCaption ? "<figcaption>" + esc(post.imageCaption) + "</figcaption>" : "") +
@@ -434,11 +447,36 @@
       "</header>" +
       figure +
       '<div class="article__body">' +
-      paragraphs.map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("") +
+      blocks.map(contentBlockHtml).join("") +
       "</div>" +
       "</article>";
 
     window.scrollTo(0, 0);
+  }
+
+  // A content item is a plain string (paragraph) or an object:
+  //   { "heading": "...", "subtitle": "..." }  section title + optional deck
+  //   { "image": "...", "caption": "..." }     full-width figure
+  //   { "quote": "..." }                       pull quote
+  function contentBlockHtml(block) {
+    if (typeof block === "string") return "<p>" + esc(block) + "</p>";
+    if (!block || typeof block !== "object") return "";
+    if (block.heading) {
+      return (
+        '<h2 class="article__h2">' + esc(block.heading) + "</h2>" +
+        (block.subtitle ? '<p class="article__deck">' + esc(block.subtitle) + "</p>" : "")
+      );
+    }
+    if (block.image) {
+      return (
+        '<figure class="article__inline">' +
+        '<img src="' + esc(block.image) + '" alt="' + esc(block.alt || block.caption || "") + '" loading="lazy" />' +
+        (block.caption ? "<figcaption>" + esc(block.caption) + "</figcaption>" : "") +
+        "</figure>"
+      );
+    }
+    if (block.quote) return '<blockquote class="article__quote">' + esc(block.quote) + "</blockquote>";
+    return "";
   }
 
   // ---------- Routing ----------
