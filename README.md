@@ -55,6 +55,16 @@ Notes:
 - Dates use `YYYY-MM-DD` and control ordering (newest first).
 - While `posts` is empty, the site shows built-in **sample content** (with a notice) so the layout can be previewed. Your first real post replaces it automatically.
 
+## Sharing a post (LinkedIn, WhatsApp, X…)
+
+Share links look like `https://facanhaluisaaa-create.github.io/Journal-Lu-sa/p/<post-id>/`. These static pages carry each post's Open Graph title, description and cover image (social networks don't run JavaScript, so the `#/post/…` route alone would preview as the generic front page), then redirect readers to the article.
+
+Regenerate them whenever posts are added or edited:
+
+```bash
+python3 build_share_pages.py
+```
+
 ## Running locally
 
 Because the site loads `data/posts.json` via `fetch`, serve it over HTTP:
