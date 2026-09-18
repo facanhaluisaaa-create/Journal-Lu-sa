@@ -218,6 +218,7 @@
       state.site.name = data.site.name || state.site.name;
       state.site.tagline = data.site.tagline || state.site.tagline;
       state.site.footerText = data.site.footerText || state.site.footerText;
+      state.site.newsletterAction = data.site.newsletterAction || "";
     }
 
     state.posts = sortByDateDesc(posts);
@@ -527,20 +528,48 @@
         return;
       }
 
-      // Front-end only for now: subscribers are kept in this browser's
-      // localStorage. Point the form at a real service (Buttondown,
-      // Mailchimp, Formspree…) when you're ready to collect real signups.
-      try {
-        var list = JSON.parse(localStorage.getItem("lusa-newsletter") || "[]");
-        if (list.indexOf(email) === -1) list.push(email);
-        localStorage.setItem("lusa-newsletter", JSON.stringify(list));
-      } catch (e) {
-        /* storage unavailable — the confirmation still shows */
+      var form = event.target;
+      var action = state.site.newsletterAction || form.getAttribute("action");
+      var button = form.querySelector("button");
+
+      if (!action) {
+        feedback.textContent = "Newsletter signup isn't connected yet.";
+        feedback.className = "newsletter__feedback is-error";
+        return;
       }
 
-      input.value = "";
-      feedback.textContent = "Thank you — you're on the list.";
-      feedback.className = "newsletter__feedback is-ok";
+      button.disabled = true;
+      feedback.textContent = "Subscribing…";
+      feedback.className = "newsletter__feedback";
+
+      var body = new FormData();
+      body.append("email_address", email);
+
+      // Kit (ConvertKit) answers JSON to an XHR post on the form endpoint.
+      fetch(action, { method: "POST", body: body, headers: { Accept: "application/json" } })
+        .then(function (res) { return res.json().catch(function () { return {}; }).then(function (json) { return { ok: res.ok, json: json }; }); })
+        .then(function (result) {
+          var json = result.json || {};
+          if (result.ok && json.status === "success") {
+            input.value = "";
+            feedback.textContent = "Almost there — check your inbox to confirm your subscription.";
+            feedback.className = "newsletter__feedback is-ok";
+            return;
+          }
+          // Kit's spam guard asks the reader to verify on its own page.
+          if (json.status === "quarantined" && json.url) {
+            window.location.href = json.url;
+            return;
+          }
+          throw new Error((json.errors && json.errors[0]) || "Subscription failed");
+        })
+        .catch(function () {
+          // Network or CORS trouble: fall back to a plain form post, which
+          // lands on Kit's own confirmation page. (form.submit() does not
+          // re-trigger this handler.)
+          form.submit();
+        })
+        .then(function () { button.disabled = false; });
     });
 
     window.addEventListener("hashchange", route);
