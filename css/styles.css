@@ -127,15 +127,6 @@ img { max-width: 100%; display: block; }
   padding: 34px 0 22px;
 }
 
-.masthead__edition {
-  margin: 0 0 10px;
-  font-family: var(--font-ui);
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  color: var(--ink-soft);
-}
-
 .masthead__title {
   margin: 0;
   font-family: var(--font-logo);
