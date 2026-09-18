@@ -84,4 +84,4 @@ Any static host works. For **GitHub Pages**: repository **Settings → Pages →
 
 - **Colors**: edit the CSS variables at the top of `css/styles.css` (`--accent` is the editorial red).
 - **Site name / tagline / footer**: edit the `site` object in `data/posts.json`.
-- **Newsletter**: the form currently stores emails in the visitor's own browser (`localStorage`) and shows a confirmation. To collect real signups, point the form at a service such as Buttondown, Mailchimp or Formspree (see the newsletter handler in `js/app.js`).
+- **Newsletter**: signups are sent to Kit (ConvertKit). The form endpoint lives in `data/posts.json` under `site.newsletterAction` (and as the `action` attribute of the form in `index.html` as a no-JS fallback). Kit uses double opt-in, so new subscribers show as unconfirmed until they click the confirmation email.

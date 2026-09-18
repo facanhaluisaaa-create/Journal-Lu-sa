@@ -2,7 +2,8 @@
   "site": {
     "name": "Façanha’s Journal",
     "tagline": "Notes, essays & observations",
-    "footerText": "Published independently. All rights reserved."
+    "footerText": "Published independently. All rights reserved.",
+    "newsletterAction": "https://app.kit.com/forms/9933597/subscriptions"
   },
   "categories": ["Fashion", "Culture", "Business"],
   "posts": [
