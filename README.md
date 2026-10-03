@@ -55,6 +55,14 @@ Notes:
 - Dates use `YYYY-MM-DD` and control ordering (newest first).
 - While `posts` is empty, the site shows built-in **sample content** (with a notice) so the layout can be previewed. Your first real post replaces it automatically.
 
+## Languages
+
+The site ships in English and Portuguese. A reader's language is picked from `?lang=pt` in the URL, then their last choice, then their browser language; the switcher in the top bar changes it. Other languages open the page through Google Translate.
+
+- Interface strings live in `js/app.js` (`I18N`); site-wide text per language (tagline, footer, category names) lives in `data/posts.json` under `site.translations`.
+- To translate a post, add `"translations": {"pt": {"title", "subtitle", "excerpt", "content"}}` to it, mirroring the English `content` structure (image blocks can repeat the same image path with a translated `alt`). Posts without a translation show the English original with a small notice.
+- Search matches both the original and the translated text.
+
 ## Sharing a post (LinkedIn, WhatsApp, X…)
 
 Share links look like `https://facanhaluisaaa-create.github.io/Journal-Lu-sa/p/<post-id>/`. These static pages carry each post's Open Graph title, description and cover image (social networks don't run JavaScript, so the `#/post/…` route alone would preview as the generic front page), then redirect readers to the article.

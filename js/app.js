@@ -149,8 +149,162 @@
     categories: [],
     activeCategory: "all",
     query: "",
-    usingSamples: false
+    usingSamples: false,
+    lang: "en"
   };
+
+  // ---------- Languages ----------
+
+  // Interface strings. Article text lives in posts.json (post.translations);
+  // site-wide strings such as the tagline live in site.translations.
+  var I18N = {
+    en: {
+      locale: "en-US",
+      skip: "Skip to content",
+      searchPlaceholder: "Search articles…",
+      search: "Search",
+      langLabel: "Language",
+      moreLanguages: "More languages (Google Translate)",
+      all: "All",
+      latest: "Latest Publications",
+      theLatest: "The Latest",
+      comingSoon: "Coming soon",
+      moreSoon: "More publications coming soon.",
+      nothingFound: "Nothing found. Try another word or category.",
+      noPosts: "No posts yet — add your first post in data/posts.json.",
+      searchResults: "Search results for “%s”",
+      back: "← Back to the front page",
+      by: "By",
+      notTranslated: "This article hasn’t been translated yet — showing the English original.",
+      nlKicker: "Newsletter",
+      nlTitle: "The Journal, delivered.",
+      nlText: "New essays and notes, straight to your inbox. No noise — just the writing.",
+      nlPlaceholder: "your@email.com",
+      nlButton: "Subscribe",
+      nlInvalid: "Please enter a valid email address.",
+      nlNotConnected: "Newsletter signup isn’t connected yet.",
+      nlSubscribing: "Subscribing…",
+      nlSuccess: "Almost there — check your inbox to confirm your subscription."
+    },
+    pt: {
+      locale: "pt-BR",
+      skip: "Pular para o conteúdo",
+      searchPlaceholder: "Buscar artigos…",
+      search: "Buscar",
+      langLabel: "Idioma",
+      moreLanguages: "Outros idiomas (Google Tradutor)",
+      all: "Todos",
+      latest: "Últimas Publicações",
+      theLatest: "Mais Recentes",
+      comingSoon: "Em breve",
+      moreSoon: "Mais publicações em breve.",
+      nothingFound: "Nada encontrado. Tente outra palavra ou categoria.",
+      noPosts: "Ainda não há posts — adicione o primeiro em data/posts.json.",
+      searchResults: "Resultados da busca por “%s”",
+      back: "← Voltar para a capa",
+      by: "Por",
+      notTranslated: "Este artigo ainda não foi traduzido — exibindo o original em inglês.",
+      nlKicker: "Newsletter",
+      nlTitle: "O Journal, na sua caixa de entrada.",
+      nlText: "Novos ensaios e notas, direto no seu e-mail. Sem ruído — só a escrita.",
+      nlPlaceholder: "seu@email.com",
+      nlButton: "Assinar",
+      nlInvalid: "Digite um e-mail válido.",
+      nlNotConnected: "A assinatura da newsletter ainda não está conectada.",
+      nlSubscribing: "Assinando…",
+      nlSuccess: "Quase lá — confira seu e-mail para confirmar a assinatura."
+    }
+  };
+
+  // Languages offered through Google Translate when no native translation exists.
+  var MACHINE_LANGS = [
+    ["es", "Español"], ["fr", "Français"], ["it", "Italiano"], ["de", "Deutsch"],
+    ["ja", "日本語"], ["zh-CN", "中文"], ["ko", "한국어"], ["ar", "العربية"],
+    ["ru", "Русский"], ["hi", "हिन्दी"]
+  ];
+
+  function t(key) {
+    var table = I18N[state.lang] || I18N.en;
+    return table[key] != null ? table[key] : I18N.en[key] || key;
+  }
+
+  function fmt(key, value) {
+    return t(key).replace("%s", value);
+  }
+
+  // A post field in the current language, falling back to the original.
+  function tr(post, field) {
+    var tx = post.translations && post.translations[state.lang];
+    var value = tx ? tx[field] : null;
+    if (Array.isArray(value)) return value.length ? value : post[field];
+    return value || post[field];
+  }
+
+  function hasTranslation(post) {
+    return state.lang === "en" || !!(post.translations && post.translations[state.lang]);
+  }
+
+  function siteText(field) {
+    var tx = state.site.translations && state.site.translations[state.lang];
+    return (tx && tx[field]) || state.site[field];
+  }
+
+  function catLabel(cat) {
+    var tx = state.site.translations && state.site.translations[state.lang];
+    return (tx && tx.categories && tx.categories[cat]) || cat;
+  }
+
+  function siteLangCodes() {
+    return (state.site.languages || []).map(function (l) { return l.code; });
+  }
+
+  function detectLang() {
+    var codes = siteLangCodes();
+    var fromUrl = new URLSearchParams(location.search).get("lang");
+    var stored = null;
+    try { stored = localStorage.getItem("journal-lang"); } catch (e) { /* ignore */ }
+    var browser = (navigator.language || "").slice(0, 2).toLowerCase();
+    var pick = [fromUrl, stored, browser, "en"].filter(function (c) {
+      return c && codes.indexOf(c) !== -1;
+    })[0];
+    return pick || "en";
+  }
+
+  function setLang(code) {
+    state.lang = code;
+    try { localStorage.setItem("journal-lang", code); } catch (e) { /* ignore */ }
+    renderChrome();
+    renderNav();
+    route();
+  }
+
+  function machineTranslateUrl(code) {
+    var here = location.href.split("#")[0];
+    return (
+      "https://translate.google.com/translate?sl=en&tl=" + encodeURIComponent(code) +
+      "&u=" + encodeURIComponent(here)
+    );
+  }
+
+  function renderLangSwitcher() {
+    var langs = state.site.languages || [];
+    if (langs.length < 2 && MACHINE_LANGS.length === 0) {
+      $("lang-slot").innerHTML = "";
+      return;
+    }
+    var options = langs.map(function (l) {
+      return '<option value="' + esc(l.code) + '"' + (l.code === state.lang ? " selected" : "") + ">" + esc(l.label) + "</option>";
+    });
+    var machine = MACHINE_LANGS.filter(function (m) { return siteLangCodes().indexOf(m[0]) === -1; })
+      .map(function (m) { return '<option value="gt:' + esc(m[0]) + '">' + esc(m[1]) + "</option>"; });
+    $("lang-slot").innerHTML =
+      '<label class="lang">' +
+      '<span class="lang__label">' + esc(t("langLabel")) + "</span>" +
+      '<select class="lang__select" id="lang-select" aria-label="' + esc(t("langLabel")) + '">' +
+      options.join("") +
+      (machine.length ? '<optgroup label="' + esc(t("moreLanguages")) + '">' + machine.join("") + "</optgroup>" : "") +
+      "</select></label>";
+  }
 
   // ---------- Helpers ----------
 
@@ -173,7 +327,7 @@
     if (parts.length !== 3) return esc(iso);
     var d = new Date(Date.UTC(+parts[0], +parts[1] - 1, +parts[2]));
     if (isNaN(d.getTime())) return esc(iso);
-    return d.toLocaleDateString("en-US", {
+    return d.toLocaleDateString(t("locale"), {
       year: "numeric",
       month: "long",
       day: "numeric",
@@ -188,7 +342,7 @@
   }
 
   function bylineHtml(post) {
-    var author = post.author ? "By <strong>" + esc(post.author) + "</strong>" : "";
+    var author = post.author ? esc(t("by")) + " <strong>" + esc(post.author) + "</strong>" : "";
     var date = post.date ? formatDate(post.date) : "";
     var sep = author && date ? " · " : "";
     return '<p class="byline">' + author + sep + date + "</p>";
@@ -219,6 +373,10 @@
       state.site.tagline = data.site.tagline || state.site.tagline;
       state.site.footerText = data.site.footerText || state.site.footerText;
       state.site.newsletterAction = data.site.newsletterAction || "";
+      state.site.languages = Array.isArray(data.site.languages) && data.site.languages.length
+        ? data.site.languages
+        : [{ code: "en", label: "English" }];
+      state.site.translations = data.site.translations || {};
     }
 
     state.posts = sortByDateDesc(posts);
@@ -247,31 +405,43 @@
   // ---------- Rendering: chrome ----------
 
   function renderChrome() {
+    document.documentElement.lang = state.lang;
     $("site-name").textContent = state.site.name;
-    $("site-tagline").textContent = state.site.tagline;
+    $("site-tagline").textContent = siteText("tagline");
     $("footer-name").textContent = state.site.name;
-    $("footer-text").textContent = state.site.footerText;
+    $("footer-text").textContent = siteText("footerText");
     $("footer-year").textContent = String(new Date().getFullYear());
     document.title = state.site.name;
 
-    $("current-date").textContent = new Date().toLocaleDateString("en-US", {
+    $("skip-link").textContent = t("skip");
+    $("search-input").placeholder = t("searchPlaceholder");
+    $("search-input").setAttribute("aria-label", t("searchPlaceholder"));
+    $("search-btn").textContent = t("search");
+    $("nl-kicker").textContent = t("nlKicker");
+    $("nl-title").textContent = t("nlTitle");
+    $("nl-text").textContent = t("nlText");
+    $("newsletter-email").placeholder = t("nlPlaceholder");
+    $("nl-btn").textContent = t("nlButton");
+
+    $("current-date").textContent = new Date().toLocaleDateString(t("locale"), {
       weekday: "long",
       year: "numeric",
       month: "long",
       day: "numeric"
     });
 
+    renderLangSwitcher();
     $("sample-notice").hidden = !state.usingSamples;
   }
 
   function renderNav() {
-    var items = ['<li><button type="button" class="nav__link" data-category="all">All</button></li>'];
+    var items = ['<li><button type="button" class="nav__link" data-category="all">' + esc(t("all")) + "</button></li>"];
     state.categories.forEach(function (cat) {
       items.push(
         '<li><button type="button" class="nav__link" data-category="' +
           esc(cat) +
           '">' +
-          esc(cat) +
+          esc(catLabel(cat)) +
           "</button></li>"
       );
     });
@@ -299,7 +469,12 @@
         post.excerpt,
         post.author,
         post.category,
-        contentText(post.content)
+        catLabel(post.category),
+        contentText(post.content),
+        tr(post, "title"),
+        tr(post, "subtitle"),
+        tr(post, "excerpt"),
+        contentText(tr(post, "content"))
       ]
         .join(" ")
         .toLowerCase();
@@ -336,11 +511,11 @@
 
     $("featured-slot").innerHTML = featured ? featuredHtml(featured, gridPosts) : "";
 
-    var heading = "Latest Publications";
+    var heading = esc(t("latest"));
     if (state.query.trim() !== "") {
-      heading = 'Search results for “' + esc(state.query.trim()) + "”";
+      heading = esc(fmt("searchResults", state.query.trim()));
     } else if (state.activeCategory !== "all") {
-      heading = esc(state.activeCategory);
+      heading = esc(catLabel(state.activeCategory));
     }
     $("grid-heading").innerHTML = heading;
 
@@ -349,12 +524,10 @@
     var empty = $("empty-state");
     if (posts.length === 0) {
       empty.hidden = false;
-      empty.textContent = filtering
-        ? "Nothing found. Try another word or category."
-        : "No posts yet — add your first post in data/posts.json.";
+      empty.textContent = filtering ? t("nothingFound") : t("noPosts");
     } else if (featured && gridPosts.length === 0) {
       empty.hidden = false;
-      empty.textContent = "More publications coming soon.";
+      empty.textContent = t("moreSoon");
     } else {
       empty.hidden = true;
     }
@@ -364,37 +537,42 @@
     var asideItems = others.slice(0, 4).map(function (p) {
       return (
         "<li>" +
-        (p.category ? '<p class="kicker">' + esc(p.category) + "</p>" : "") +
-        '<a href="#/post/' + encodeURIComponent(p.id) + '">' + esc(p.title) + "</a>" +
+        (p.category ? '<p class="kicker">' + esc(catLabel(p.category)) + "</p>" : "") +
+        '<a href="#/post/' + encodeURIComponent(p.id) + '">' + esc(tr(p, "title")) + "</a>" +
         "</li>"
       );
     });
 
     var aside =
       '<aside class="featured__aside">' +
-      '<h2 class="aside-title">The Latest</h2>' +
+      '<h2 class="aside-title">' + esc(t("theLatest")) + "</h2>" +
       '<ul class="aside-list">' +
       (asideItems.length
         ? asideItems.join("")
-        : '<li><p class="kicker">Coming soon</p></li>') +
+        : '<li><p class="kicker">' + esc(t("comingSoon")) + "</p></li>") +
       "</ul></aside>";
+
+    var title = tr(post, "title");
+    var subtitle = tr(post, "subtitle");
+    var excerpt = tr(post, "excerpt");
+    var caption = tr(post, "imageCaption");
 
     var figure = post.image
       ? '<figure class="featured__figure"><a href="#/post/' + encodeURIComponent(post.id) + '">' +
-        '<img src="' + esc(post.image) + '" alt="' + esc(post.title) + '" /></a>' +
-        (post.imageCaption ? '<figcaption class="featured__caption">' + esc(post.imageCaption) + "</figcaption>" : "") +
+        '<img src="' + esc(post.image) + '" alt="' + esc(title) + '" /></a>' +
+        (caption ? '<figcaption class="featured__caption">' + esc(caption) + "</figcaption>" : "") +
         "</figure>"
       : "";
 
     return (
       '<article class="featured">' +
       '<div class="featured__main">' +
-      (post.category ? '<p class="kicker">' + esc(post.category) + "</p>" : "") +
-      '<h2 class="featured__title"><a href="#/post/' + encodeURIComponent(post.id) + '">' + esc(post.title) + "</a></h2>" +
-      (post.subtitle ? '<p class="featured__subtitle">' + esc(post.subtitle) + "</p>" : "") +
+      (post.category ? '<p class="kicker">' + esc(catLabel(post.category)) + "</p>" : "") +
+      '<h2 class="featured__title"><a href="#/post/' + encodeURIComponent(post.id) + '">' + esc(title) + "</a></h2>" +
+      (subtitle ? '<p class="featured__subtitle">' + esc(subtitle) + "</p>" : "") +
       bylineHtml(post) +
       figure +
-      (post.excerpt ? '<p class="featured__excerpt">' + esc(post.excerpt) + "</p>" : "") +
+      (excerpt ? '<p class="featured__excerpt">' + esc(excerpt) + "</p>" : "") +
       "</div>" +
       aside +
       "</article>"
@@ -402,16 +580,18 @@
   }
 
   function cardHtml(post) {
+    var title = tr(post, "title");
+    var excerpt = tr(post, "excerpt");
     var img = post.image
       ? '<a href="#/post/' + encodeURIComponent(post.id) + '">' +
-        '<img class="card__img" src="' + esc(post.image) + '" alt="' + esc(post.title) + '" /></a>'
+        '<img class="card__img" src="' + esc(post.image) + '" alt="' + esc(title) + '" /></a>'
       : "";
     return (
       '<article class="card">' +
       img +
-      (post.category ? '<p class="kicker">' + esc(post.category) + "</p>" : "") +
-      '<h3 class="card__title"><a href="#/post/' + encodeURIComponent(post.id) + '">' + esc(post.title) + "</a></h3>" +
-      (post.excerpt ? '<p class="card__excerpt">' + esc(post.excerpt) + "</p>" : "") +
+      (post.category ? '<p class="kicker">' + esc(catLabel(post.category)) + "</p>" : "") +
+      '<h3 class="card__title"><a href="#/post/' + encodeURIComponent(post.id) + '">' + esc(title) + "</a></h3>" +
+      (excerpt ? '<p class="card__excerpt">' + esc(excerpt) + "</p>" : "") +
       bylineHtml(post) +
       "</article>"
     );
@@ -426,10 +606,14 @@
       return;
     }
 
-    var blocks = Array.isArray(post.content) ? post.content : [post.content].filter(Boolean);
+    var title = tr(post, "title");
+    var subtitle = tr(post, "subtitle");
+    var caption = tr(post, "imageCaption");
+    var content = tr(post, "content");
+    var blocks = Array.isArray(content) ? content : [content].filter(Boolean);
     var figure = post.image
-      ? '<figure class="article__figure"><img src="' + esc(post.image) + '" alt="' + esc(post.title) + '" />' +
-        (post.imageCaption ? "<figcaption>" + esc(post.imageCaption) + "</figcaption>" : "") +
+      ? '<figure class="article__figure"><img src="' + esc(post.image) + '" alt="' + esc(title) + '" />' +
+        (caption ? "<figcaption>" + esc(caption) + "</figcaption>" : "") +
         "</figure>"
       : "";
 
@@ -438,12 +622,13 @@
     view.hidden = false;
     view.innerHTML =
       '<article class="article">' +
-      '<a class="article__back" href="#/">&larr; Back to the front page</a>' +
+      '<a class="article__back" href="#/">' + esc(t("back")) + "</a>" +
       '<header class="article__header">' +
-      (post.category ? '<p class="kicker">' + esc(post.category) + "</p>" : "") +
-      '<h1 class="article__title">' + esc(post.title) + "</h1>" +
-      (post.subtitle ? '<p class="article__subtitle">' + esc(post.subtitle) + "</p>" : "") +
+      (post.category ? '<p class="kicker">' + esc(catLabel(post.category)) + "</p>" : "") +
+      '<h1 class="article__title">' + esc(title) + "</h1>" +
+      (subtitle ? '<p class="article__subtitle">' + esc(subtitle) + "</p>" : "") +
       bylineHtml(post) +
+      (hasTranslation(post) ? "" : '<p class="article__notice">' + esc(t("notTranslated")) + "</p>") +
       '<hr class="article__rule" />' +
       "</header>" +
       figure +
@@ -523,7 +708,7 @@
       var email = input.value.trim();
 
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        feedback.textContent = "Please enter a valid email address.";
+        feedback.textContent = t("nlInvalid");
         feedback.className = "newsletter__feedback is-error";
         return;
       }
@@ -533,13 +718,13 @@
       var button = form.querySelector("button");
 
       if (!action) {
-        feedback.textContent = "Newsletter signup isn't connected yet.";
+        feedback.textContent = t("nlNotConnected");
         feedback.className = "newsletter__feedback is-error";
         return;
       }
 
       button.disabled = true;
-      feedback.textContent = "Subscribing…";
+      feedback.textContent = t("nlSubscribing");
       feedback.className = "newsletter__feedback";
 
       var body = new FormData();
@@ -552,7 +737,7 @@
           var json = result.json || {};
           if (result.ok && json.status === "success") {
             input.value = "";
-            feedback.textContent = "Almost there — check your inbox to confirm your subscription.";
+            feedback.textContent = t("nlSuccess");
             feedback.className = "newsletter__feedback is-ok";
             return;
           }
@@ -573,11 +758,24 @@
     });
 
     window.addEventListener("hashchange", route);
+
+    // The switcher is re-rendered with the chrome, so listen on the document.
+    document.addEventListener("change", function (event) {
+      if (event.target.id !== "lang-select") return;
+      var value = event.target.value;
+      if (value.indexOf("gt:") === 0) {
+        event.target.value = state.lang;
+        window.location.href = machineTranslateUrl(value.slice(3));
+        return;
+      }
+      setLang(value);
+    });
   }
 
   // ---------- Init ----------
 
   loadData().then(function () {
+    state.lang = detectLang();
     renderChrome();
     renderNav();
     bindEvents();

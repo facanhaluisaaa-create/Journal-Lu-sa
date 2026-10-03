@@ -3,9 +3,34 @@
     "name": "Façanha’s Journal",
     "tagline": "Notes, essays & observations",
     "footerText": "Published independently. All rights reserved.",
-    "newsletterAction": "https://app.kit.com/forms/9933597/subscriptions"
+    "newsletterAction": "https://app.kit.com/forms/9933597/subscriptions",
+    "languages": [
+      {
+        "code": "en",
+        "label": "English"
+      },
+      {
+        "code": "pt",
+        "label": "Português"
+      }
+    ],
+    "translations": {
+      "pt": {
+        "tagline": "Notas, ensaios e observações",
+        "footerText": "Publicação independente. Todos os direitos reservados.",
+        "categories": {
+          "Fashion": "Moda",
+          "Culture": "Cultura",
+          "Business": "Negócios"
+        }
+      }
+    }
   },
-  "categories": ["Fashion", "Culture", "Business"],
+  "categories": [
+    "Fashion",
+    "Culture",
+    "Business"
+  ],
   "posts": [
     {
       "id": "whimsical-fashion",
@@ -21,33 +46,58 @@
         "I’m especially drawn to whimsical style because of the way it reconnects us with childhood. In a society that often feels fast-paced, uncertain, and emotionally overwhelming, there are moments when all we want is to return to a time when life felt softer, lighter, and more imaginative.",
         "What fascinates me most about this aesthetic is the psychology behind it. As women, we are often expected to grow up too quickly, becoming aware of social expectations, pressure, and the way the female figure is perceived long before we are truly ready. Because of this, childhood does not always feel as carefree or innocent as we imagine it should.",
         "Whimsical style can offer a sense of emotional comfort. Through playful details, delicate shapes, dreamy colors, and elements of fantasy, it allows us to reconnect with a softer and more imaginative part of ourselves. In a way, dressing whimsically can feel like embracing your inner child, not as an attempt to escape adulthood, but as a way of reclaiming the wonder, freedom, creativity, and imagination that can sometimes fade as we grow older.",
-        { "image": "images/whimsical-fashion/whimsical.jpg", "alt": "Mood board: flowers pressed on a face, a pink knit and layered necklaces, glass butterflies in the sun, a ruffled pink gown, a tulle skirt in a garden, embroidered corseted dresses." },
-
-        { "heading": "Whimsical Makeup", "subtitle": "Petals, glitter and rhinestones" },
-        { "image": "images/whimsical-fashion/makeup.jpg", "alt": "Mood board: glittered eyelids, rhinestone constellations on a forehead, green fairy-like eye makeup, flowers tucked into hair, tiny pearls and butterflies around the eyes." },
+        {
+          "image": "images/whimsical-fashion/whimsical.jpg",
+          "alt": "Mood board: flowers pressed on a face, a pink knit and layered necklaces, glass butterflies in the sun, a ruffled pink gown, a tulle skirt in a garden, embroidered corseted dresses."
+        },
+        {
+          "heading": "Whimsical Makeup",
+          "subtitle": "Petals, glitter and rhinestones"
+        },
+        {
+          "image": "images/whimsical-fashion/makeup.jpg",
+          "alt": "Mood board: glittered eyelids, rhinestone constellations on a forehead, green fairy-like eye makeup, flowers tucked into hair, tiny pearls and butterflies around the eyes."
+        },
         "Whimsical makeup often plays with glitter, soft colors, and shades that feel almost fairy-like or inspired by nature. Pink and green are especially common, while combinations such as blue and purple can create an equally dreamy effect. I love the way these colors can make someone look almost ethereal, as though there is a little bit of magic surrounding them.",
         "To me, that sense of magic connects directly to childhood. When we are children, our imagination can feel almost limitless. We dream freely, create entire worlds in our minds, and allow ourselves to believe in things that do not necessarily have to make sense. There is something incredibly special about that kind of freedom, and whimsical makeup can bring a small part of that feeling back.",
         "Glitter, in particular, has an even deeper meaning for me. I like to think of it as a representation of the inner light children naturally carry — the brightness, curiosity, and excitement that can illuminate the people around them. As we grow older, however, responsibilities, expectations, and the realities of adulthood can sometimes make that light feel a little dimmer. Whimsical makeup can serve as a small reminder not to let it disappear completely.",
         "I also love experimenting with unusual eyeliner, tiny drawings, stars, flowers, hearts, and other delicate details across the face. To me, these elements represent more than fantasy; they also represent creativity. Children are naturally imaginative because their minds have not yet been shaped by all the rules surrounding what is considered realistic, practical, or appropriate. Adding these playful details to makeup can therefore become another way of reconnecting with that imaginative, expressive, and curious part of ourselves.",
-
-        { "heading": "Whimsical Accessories", "subtitle": "Dragonflies, buttons, orchids and pearls" },
-        { "image": "images/whimsical-fashion/accessories.jpg", "alt": "Mood board: dragonfly hair clips, a jewelled butterfly compact, orchid and pearl necklaces, a sequined scarf, a button headband and a flower arm cuff." },
+        {
+          "heading": "Whimsical Accessories",
+          "subtitle": "Dragonflies, buttons, orchids and pearls"
+        },
+        {
+          "image": "images/whimsical-fashion/accessories.jpg",
+          "alt": "Mood board: dragonfly hair clips, a jewelled butterfly compact, orchid and pearl necklaces, a sequined scarf, a button headband and a flower arm cuff."
+        },
         "Accessories are often one of the easiest ways to learn something about a person. They can reveal personality, carry sentimental value, come from someone important, or represent a memory, place, or moment that means something to you. Even the simplest outfit can feel completely different once the right accessories are added, because they give the look character and make it feel more personal.",
         "In whimsical style, accessories help reinforce the sense of magic and childhood that defines the aesthetic. They can be colorful or more monochromatic, but they often draw inspiration from nature, fantasy, and playful details. Flowers, butterflies, stars, shells, charms, ribbons, and delicate shapes can make an outfit feel as though it belongs to a small imaginary world.",
         "I also love how whimsical accessories often combine these playful elements with vintage-inspired jewelry. An antique-looking necklace, a delicate pendant, a charm bracelet, or an unusual ring can create a beautiful contrast between nostalgia and fantasy. Vintage pieces often feel as though they carry a story, while more playful accessories bring back the curiosity and imagination associated with childhood.",
-        { "quote": "That is what makes accessories so important in this style: they are not simply decorative." },
+        {
+          "quote": "That is what makes accessories so important in this style: they are not simply decorative."
+        },
         "They can make an outfit feel more intimate, almost like a collection of small symbols that reveal something about who you are, what you love, and the memories or feelings you choose to carry with you.",
-
-        { "heading": "Whimsical Shoes", "subtitle": "Roses, orchids and ribbons underfoot" },
-        { "image": "images/whimsical-fashion/shoes.jpg", "alt": "Mood board: pastel heels with rose vines, jewelled sandals, satin shoes with ribbon roses, flowered lace-up sandals on the runway, embroidered pink ballet flats." },
+        {
+          "heading": "Whimsical Shoes",
+          "subtitle": "Roses, orchids and ribbons underfoot"
+        },
+        {
+          "image": "images/whimsical-fashion/shoes.jpg",
+          "alt": "Mood board: pastel heels with rose vines, jewelled sandals, satin shoes with ribbon roses, flowered lace-up sandals on the runway, embroidered pink ballet flats."
+        },
         "Shoes in whimsical style can go in many different directions. Some are softer, more playful, colorful, and almost childlike, while others feel much more elegant, with heels, delicate shapes, or details that give them an almost magical quality. Even ballet flats can appear more refined and sophisticated rather than simply casual.",
         "The details are often what make the shoes feel whimsical. Ribbons, bows, embroidery, unusual textures, soft colors, floral elements, or small decorative touches can transform a simple pair of shoes into something that feels much more imaginative. Sometimes the effect is very obvious and fairy-like, while other times the whimsical feeling appears only in one small detail.",
         "What I find especially interesting is how shoes can completely change the mood of an outfit. A more comfortable and playful pair can make the look feel lighter and more relaxed, while heels or more dramatic shoes can make the same aesthetic feel elegant, romantic, or almost theatrical. Shoes can therefore change not only how the outfit looks, but also how the person wearing it feels.",
         "There is also something interesting about the balance between comfort and fantasy. Some people may want shoes that allow them to move freely while still expressing their personality, while others may be drawn to a more dramatic pair because they enjoy the elegance and imagination it brings. Neither choice defines a person completely, but it can reflect what they want to express through fashion in that particular moment.",
         "For me, this is one of the most charming parts of whimsical style. The shoes do not have to follow one specific formula. They can be cute, elegant, colorful, delicate, comfortable, dramatic, or even slightly unusual. What connects them is that little sense of imagination that turns something practical into part of the fantasy.",
-
-        { "heading": "Whimsical Clothes", "subtitle": "Organza, tulle, ribbon and appliqué" },
-        { "image": "images/whimsical-fashion/clothes.jpg", "alt": "Mood board: draped pink gowns with fabric roses, a sheer floral-print dress, layered organza ruffles, a tulle train, an embroidered corset dress, a lace skirt and an appliquéd camisole." },
+        {
+          "heading": "Whimsical Clothes",
+          "subtitle": "Organza, tulle, ribbon and appliqué"
+        },
+        {
+          "image": "images/whimsical-fashion/clothes.jpg",
+          "alt": "Mood board: draped pink gowns with fabric roses, a sheer floral-print dress, layered organza ruffles, a tulle train, an embroidered corset dress, a lace skirt and an appliquéd camisole."
+        },
         "Clothes are one of the most important parts of whimsical style because they are what really bring the entire aesthetic to life. While makeup, accessories, and shoes can add small touches of fantasy, clothing creates the foundation of the look. It is through shape, texture, color, movement, and layering that the whimsical feeling becomes fully visible.",
         "Whimsical clothing often has a softness to it. Flowing fabrics, light layers, delicate textures, lace, embroidery, sheer details, ribbons, ruffles, and unusual sleeves can all contribute to that dreamy feeling. The movement of the clothes also matters. A skirt that moves when you walk, a soft sleeve that falls naturally, or layers of fabric that create volume can make an outfit feel almost alive. This kind of movement adds to the sense of fantasy because the clothes do not feel rigid or overly structured.",
         "Color also plays an important role. Whimsical clothes can use soft pastel shades, nature-inspired tones, brighter colors, or unexpected combinations that make the outfit feel more imaginative. Pink, green, blue, lilac, cream, and earthy shades can all appear in different ways. The colors do not necessarily have to match perfectly either. Sometimes an unusual combination is exactly what gives the look personality and makes it feel more creative.",
@@ -57,19 +107,110 @@
         "I think this freedom is one of the strongest connections between whimsical fashion and childhood. Children often choose clothes based on what they love, what feels interesting, or what makes them happy, without thinking too much about whether everything follows a specific aesthetic rule. As we grow older, fashion can become much more influenced by trends, social expectations, and the desire to look appropriate. Whimsical style creates space to bring some of that instinctive creativity back.",
         "At the same time, whimsical clothing can still be elegant. The style does not have to be childish in a literal sense. Delicate fabrics, refined silhouettes, vintage-inspired pieces, and thoughtful combinations can make the aesthetic feel sophisticated while still preserving its softness and imagination. That balance between maturity and playfulness is part of what makes the style so interesting.",
         "In the end, whimsical clothing can look completely different from one person to another. It can be romantic, colorful, subtle, vintage-inspired, fairy-like, delicate, or even slightly eccentric. What connects all these interpretations is the feeling behind them: imagination, softness, freedom, creativity, and the idea that getting dressed can still contain a little bit of magic.",
-
-        { "heading": "In Conclusion", "subtitle": "Where the whimsy leaves you" },
-        { "image": "images/whimsical-fashion/conclusion.jpg", "alt": "Two vintage fairy illustrations: a winged girl in pink resting on leaves, and a fairy in a rose tutu admiring herself in a jewelled mirror." },
+        {
+          "heading": "In Conclusion",
+          "subtitle": "Where the whimsy leaves you"
+        },
+        {
+          "image": "images/whimsical-fashion/conclusion.jpg",
+          "alt": "Two vintage fairy illustrations: a winged girl in pink resting on leaves, and a fairy in a rose tutu admiring herself in a jewelled mirror."
+        },
         "Whimsical style is more than just a fashion aesthetic. What makes it so interesting to me is the psychology behind it and the way clothing can become a form of emotional expression. What we wear can say something about who we are, what we value, what we remember, and even what kind of feeling we want to carry with us throughout the day.",
         "In whimsical style, that feeling is often connected to imagination, softness, nostalgia, and freedom. The colors, textures, accessories, makeup, and small details all create a world that feels slightly more magical than everyday life. But I do not think that magic is only about looking like a fairy or dressing in a very specific way. It is more about allowing yourself to be expressive, playful, and emotionally connected to what you wear.",
         "Fashion can also become a way of reconnecting with parts of ourselves that may become quieter as we grow older. Childhood is often associated with curiosity, creativity, dreaming, and the freedom to enjoy things simply because they make us happy. Adulthood can sometimes make us more concerned with being practical, appropriate, or accepted. Whimsical style can gently challenge that by reminding us that growing up does not have to mean leaving imagination behind.",
         "That is why I think this aesthetic can feel so comforting. It allows people to bring a little softness into adulthood and to express emotions that are sometimes difficult to put into words. A piece of clothing, a sparkling detail, a colorful accessory, or an unusual pair of shoes can seem small, but together they can create a feeling of individuality and freedom.",
         "In the end, what we wear does not define everything about us, but it can reveal small parts of who we are and how we see the world. Whimsical style, to me, is a reminder that fashion can be personal, emotional, creative, and fun. Growing older does not mean that we have to lose the part of ourselves that dreams, imagines, and finds magic in small things. Sometimes, getting dressed can be one of the simplest ways to keep that part alive."
       ],
-      "featured": true
+      "featured": true,
+      "translations": {
+        "pt": {
+          "title": "Moda Whimsical",
+          "subtitle": "Sobre se vestir como uma memória de infância",
+          "excerpt": "Sou especialmente atraída pelo estilo whimsical pela forma como ele nos reconecta com a infância. Em uma sociedade que muitas vezes parece acelerada, incerta e emocionalmente exaustiva, há momentos em que tudo o que queremos é voltar a um tempo em que a vida parecia mais suave, mais leve e mais imaginativa.",
+          "content": [
+            "Sou especialmente atraída pelo estilo whimsical pela forma como ele nos reconecta com a infância. Em uma sociedade que muitas vezes parece acelerada, incerta e emocionalmente exaustiva, há momentos em que tudo o que queremos é voltar a um tempo em que a vida parecia mais suave, mais leve e mais imaginativa.",
+            "O que mais me fascina nessa estética é a psicologia por trás dela. Como mulheres, muitas vezes esperam que cresçamos rápido demais — que tomemos consciência das expectativas sociais, da pressão e da forma como a figura feminina é percebida muito antes de estarmos realmente prontas. Por isso, a infância nem sempre parece tão despreocupada ou inocente quanto imaginamos que deveria ser.",
+            "O estilo whimsical pode oferecer uma sensação de conforto emocional. Por meio de detalhes lúdicos, formas delicadas, cores sonhadoras e elementos de fantasia, ele nos permite reconectar com uma parte mais suave e imaginativa de nós mesmas. De certa forma, vestir-se de modo whimsical pode ser como abraçar a criança interior — não como uma tentativa de fugir da vida adulta, mas como uma maneira de resgatar o encantamento, a liberdade, a criatividade e a imaginação que às vezes se perdem conforme crescemos.",
+            {
+              "image": "images/whimsical-fashion/whimsical.jpg",
+              "alt": "Painel de referências: flores prensadas sobre um rosto, um tricô rosa com colares em camadas, borboletas de vidro ao sol, um vestido rosa de babados, uma saia de tule em um jardim, vestidos bordados com corpete."
+            },
+            {
+              "heading": "Maquiagem Whimsical",
+              "subtitle": "Pétalas, glitter e strass"
+            },
+            {
+              "image": "images/whimsical-fashion/makeup.jpg",
+              "alt": "Painel de referências: pálpebras com glitter, constelações de strass na testa, maquiagem verde de fada nos olhos, flores presas no cabelo, pequenas pérolas e borboletas ao redor dos olhos."
+            },
+            "A maquiagem whimsical costuma brincar com glitter, cores suaves e tons que parecem quase de fada ou inspirados na natureza. Rosa e verde são especialmente comuns, enquanto combinações como azul e roxo criam um efeito igualmente onírico. Adoro a forma como essas cores podem deixar alguém com um ar quase etéreo, como se houvesse um pouquinho de magia ao seu redor.",
+            "Para mim, essa sensação de magia se conecta diretamente à infância. Quando somos crianças, nossa imaginação parece quase ilimitada. Sonhamos livremente, criamos mundos inteiros na cabeça e nos permitimos acreditar em coisas que não precisam necessariamente fazer sentido. Há algo incrivelmente especial nesse tipo de liberdade, e a maquiagem whimsical pode trazer de volta uma pequena parte desse sentimento.",
+            "O glitter, em particular, tem um significado ainda mais profundo para mim. Gosto de pensar nele como uma representação da luz interior que as crianças carregam naturalmente — o brilho, a curiosidade e a empolgação capazes de iluminar as pessoas ao redor. Conforme crescemos, porém, as responsabilidades, as expectativas e as realidades da vida adulta podem fazer essa luz parecer um pouco mais fraca. A maquiagem whimsical pode servir como um pequeno lembrete para não deixá-la desaparecer por completo.",
+            "Também adoro experimentar delineados inusitados, pequenos desenhos, estrelas, flores, corações e outros detalhes delicados espalhados pelo rosto. Para mim, esses elementos representam mais do que fantasia; representam também criatividade. As crianças são naturalmente imaginativas porque suas mentes ainda não foram moldadas por todas as regras sobre o que é considerado realista, prático ou apropriado. Acrescentar esses detalhes lúdicos à maquiagem pode, portanto, se tornar mais uma forma de reconectar com essa parte imaginativa, expressiva e curiosa de nós mesmas.",
+            {
+              "heading": "Acessórios Whimsical",
+              "subtitle": "Libélulas, botões, orquídeas e pérolas"
+            },
+            {
+              "image": "images/whimsical-fashion/accessories.jpg",
+              "alt": "Painel de referências: presilhas de libélula, um estojo de borboleta cravejado, colares de orquídeas e pérolas, um lenço de paetês, uma tiara de botões e um bracelete de flores."
+            },
+            "Os acessórios costumam ser uma das maneiras mais fáceis de descobrir algo sobre uma pessoa. Eles podem revelar personalidade, carregar valor sentimental, ter vindo de alguém importante ou representar uma memória, um lugar ou um momento que significa algo para você. Até o look mais simples pode ficar completamente diferente com os acessórios certos, porque eles dão caráter à produção e a tornam mais pessoal.",
+            "No estilo whimsical, os acessórios ajudam a reforçar a sensação de magia e infância que define a estética. Podem ser coloridos ou mais monocromáticos, mas em geral se inspiram na natureza, na fantasia e em detalhes lúdicos. Flores, borboletas, estrelas, conchas, pingentes, fitas e formas delicadas podem fazer um look parecer pertencer a um pequeno mundo imaginário.",
+            "Também adoro como os acessórios whimsical costumam combinar esses elementos lúdicos com joias de inspiração vintage. Um colar de aparência antiga, um pingente delicado, uma pulseira de berloques ou um anel inusitado podem criar um belo contraste entre nostalgia e fantasia. As peças vintage parecem carregar uma história, enquanto os acessórios mais lúdicos trazem de volta a curiosidade e a imaginação associadas à infância.",
+            {
+              "quote": "É isso que torna os acessórios tão importantes nesse estilo: eles não são meramente decorativos."
+            },
+            "Eles podem tornar um look mais íntimo, quase como uma coleção de pequenos símbolos que revelam algo sobre quem você é, o que você ama e as memórias ou sentimentos que escolhe carregar consigo.",
+            {
+              "heading": "Sapatos Whimsical",
+              "subtitle": "Rosas, orquídeas e fitas aos pés"
+            },
+            {
+              "image": "images/whimsical-fashion/shoes.jpg",
+              "alt": "Painel de referências: saltos pastel com ramos de rosas, sandálias cravejadas, sapatos de cetim com rosas de fita, sandálias de amarrar com flores na passarela, sapatilhas rosa bordadas."
+            },
+            "Os sapatos no estilo whimsical podem seguir muitas direções diferentes. Alguns são mais suaves, lúdicos, coloridos e quase infantis, enquanto outros são bem mais elegantes, com saltos, formas delicadas ou detalhes que lhes dão uma qualidade quase mágica. Até as sapatilhas podem parecer mais refinadas e sofisticadas, em vez de simplesmente casuais.",
+            "Muitas vezes são os detalhes que tornam os sapatos whimsical. Fitas, laços, bordados, texturas inusitadas, cores suaves, elementos florais ou pequenos toques decorativos podem transformar um par simples em algo muito mais imaginativo. Às vezes o efeito é bem evidente e de conto de fadas; outras vezes, a sensação whimsical aparece em um único detalhe pequeno.",
+            "O que acho especialmente interessante é como os sapatos podem mudar completamente o clima de um look. Um par mais confortável e lúdico deixa a produção mais leve e descontraída, enquanto saltos ou sapatos mais dramáticos fazem a mesma estética parecer elegante, romântica ou quase teatral. Os sapatos podem, portanto, mudar não só a aparência do look, mas também como a pessoa que o veste se sente.",
+            "Há também algo interessante no equilíbrio entre conforto e fantasia. Algumas pessoas querem sapatos que permitam se mover livremente sem deixar de expressar a personalidade, enquanto outras se sentem atraídas por um par mais dramático porque gostam da elegância e da imaginação que ele traz. Nenhuma das escolhas define alguém por completo, mas pode refletir o que a pessoa quer expressar por meio da moda naquele momento específico.",
+            "Para mim, essa é uma das partes mais encantadoras do estilo whimsical. Os sapatos não precisam seguir uma fórmula única. Podem ser fofos, elegantes, coloridos, delicados, confortáveis, dramáticos ou até um pouco inusitados. O que os une é aquele pequeno toque de imaginação que transforma algo prático em parte da fantasia.",
+            {
+              "heading": "Roupas Whimsical",
+              "subtitle": "Organza, tule, fita e aplicações"
+            },
+            {
+              "image": "images/whimsical-fashion/clothes.jpg",
+              "alt": "Painel de referências: vestidos rosa drapeados com rosas de tecido, um vestido transparente de estampa floral, babados de organza em camadas, uma cauda de tule, um vestido bordado com corpete, uma saia de renda e uma regata com aplicações."
+            },
+            "As roupas são uma das partes mais importantes do estilo whimsical, porque são elas que realmente dão vida a toda a estética. Enquanto maquiagem, acessórios e sapatos acrescentam pequenos toques de fantasia, a roupa cria a base do look. É por meio de forma, textura, cor, movimento e sobreposição que a sensação whimsical se torna plenamente visível.",
+            "As roupas whimsical costumam ter uma suavidade. Tecidos fluidos, camadas leves, texturas delicadas, renda, bordados, detalhes transparentes, fitas, babados e mangas inusitadas contribuem para esse ar sonhador. O movimento das peças também importa. Uma saia que se move quando você anda, uma manga suave que cai naturalmente ou camadas de tecido que criam volume podem fazer um look parecer quase vivo. Esse tipo de movimento reforça a sensação de fantasia porque as roupas não parecem rígidas nem excessivamente estruturadas.",
+            "A cor também tem um papel importante. As roupas whimsical podem usar tons pastel suaves, tons inspirados na natureza, cores mais vivas ou combinações inesperadas que deixam o look mais imaginativo. Rosa, verde, azul, lilás, creme e tons terrosos aparecem de formas diferentes. As cores também não precisam combinar perfeitamente. Às vezes é justamente uma combinação inusitada que dá personalidade ao look e o torna mais criativo.",
+            "Estampas e pequenos detalhes também podem mudar completamente o clima de uma produção. Florais, estrelas, borboletas, miniestampas, bordados ou outros motivos delicados tornam até uma peça simples mais whimsical. Ao mesmo tempo, o estilo nem sempre precisa estar cheio de detalhes. Um vestido liso com uma silhueta interessante, um cardigã macio ou uma saia com uma textura bonita já criam a mesma sensação quando combinados do jeito certo.",
+            "Uma das coisas de que mais gosto nas roupas whimsical é que elas podem existir em muitos níveis diferentes. Alguns looks parecem quase de fada, com várias camadas, texturas dramáticas, formas inusitadas e fortes referências à fantasia. Outros são muito mais sutis e podem facilmente ser usados no dia a dia. Uma pessoa pode vestir um look simples e acrescentar apenas um elemento whimsical, como uma saia fluida, uma blusa bordada ou uma peça delicada em camadas. O estilo não precisa parecer um figurino para ter magia.",
+            "Há também algo muito lúdico na forma como as roupas whimsical podem ser combinadas. As peças nem sempre precisam seguir regras rígidas de moda ou parecer perfeitamente coordenadas. Parte do charme vem de experimentar proporções, sobrepor texturas diferentes, misturar peças delicadas com outras mais casuais ou combinar algo de inspiração vintage com algo mais moderno. Isso resgata a ideia de se vestir porque é divertido, em vez de pensar apenas no que parece polido, maduro ou esperado.",
+            "Acho que essa liberdade é uma das conexões mais fortes entre a moda whimsical e a infância. As crianças costumam escolher roupas pelo que amam, pelo que acham interessante ou pelo que as deixa felizes, sem pensar muito se tudo segue uma regra estética específica. Conforme crescemos, a moda passa a ser muito mais influenciada por tendências, expectativas sociais e pelo desejo de parecer adequada. O estilo whimsical abre espaço para trazer de volta um pouco dessa criatividade instintiva.",
+            "Ao mesmo tempo, as roupas whimsical podem continuar elegantes. O estilo não precisa ser infantil no sentido literal. Tecidos delicados, silhuetas refinadas, peças de inspiração vintage e combinações bem pensadas podem tornar a estética sofisticada sem perder sua suavidade e imaginação. Esse equilíbrio entre maturidade e leveza é parte do que torna o estilo tão interessante.",
+            "No fim, as roupas whimsical podem ser completamente diferentes de uma pessoa para outra. Podem ser românticas, coloridas, sutis, de inspiração vintage, de fada, delicadas ou até um pouco excêntricas. O que une todas essas interpretações é o sentimento por trás delas: imaginação, suavidade, liberdade, criatividade e a ideia de que se vestir ainda pode conter um pouquinho de magia.",
+            {
+              "heading": "Para Concluir",
+              "subtitle": "Onde o whimsical te deixa"
+            },
+            {
+              "image": "images/whimsical-fashion/conclusion.jpg",
+              "alt": "Duas ilustrações vintage de fadas: uma menina alada de rosa descansando sobre folhas, e uma fada de tutu rosa se admirando em um espelho cravejado."
+            },
+            "O estilo whimsical é mais do que uma estética de moda. O que o torna tão interessante para mim é a psicologia por trás dele e a forma como a roupa pode se tornar uma forma de expressão emocional. O que vestimos pode dizer algo sobre quem somos, o que valorizamos, do que nos lembramos e até que tipo de sentimento queremos carregar ao longo do dia.",
+            "No estilo whimsical, esse sentimento costuma estar ligado à imaginação, à suavidade, à nostalgia e à liberdade. As cores, as texturas, os acessórios, a maquiagem e os pequenos detalhes criam um mundo um pouco mais mágico do que a vida cotidiana. Mas não acho que essa magia esteja apenas em parecer uma fada ou em se vestir de um jeito muito específico. Ela está mais em se permitir ser expressiva, lúdica e emocionalmente conectada ao que se veste.",
+            "A moda também pode ser uma forma de reconectar com partes de nós que vão ficando mais quietas conforme crescemos. A infância costuma ser associada à curiosidade, à criatividade, ao sonho e à liberdade de gostar das coisas simplesmente porque elas nos fazem felizes. A vida adulta às vezes nos deixa mais preocupadas em ser práticas, adequadas ou aceitas. O estilo whimsical pode desafiar isso com delicadeza, lembrando que crescer não precisa significar deixar a imaginação para trás.",
+            "É por isso que acho essa estética tão reconfortante. Ela permite trazer um pouco de suavidade para a vida adulta e expressar emoções que às vezes são difíceis de colocar em palavras. Uma peça de roupa, um detalhe brilhante, um acessório colorido ou um par de sapatos inusitado podem parecer pequenos, mas juntos criam uma sensação de individualidade e liberdade.",
+            "No fim, o que vestimos não define tudo sobre nós, mas pode revelar pequenas partes de quem somos e de como vemos o mundo. O estilo whimsical, para mim, é um lembrete de que a moda pode ser pessoal, emocional, criativa e divertida. Crescer não significa que precisamos perder a parte de nós que sonha, imagina e encontra magia nas pequenas coisas. Às vezes, se vestir pode ser uma das maneiras mais simples de manter essa parte viva."
+          ]
+        }
+      }
     }
   ],
-  "_instructions": "HOW TO ADD A POST: 1) Make sure the post's category is listed in 'categories'. 2) Copy the '_postTemplate' object below, paste it inside the 'posts' array, and fill in the fields. 3) Set 'featured': true on exactly one post to pin it as the main story on the home page. 'content' is a list where each item is either a paragraph string or one of: {\"heading\": \"...\", \"subtitle\": \"...\"}, {\"image\": \"path.jpg\", \"caption\": \"...\", \"alt\": \"...\"}, {\"quote\": \"...\"}. Keys starting with an underscore are ignored by the site.",
+  "_instructions": "HOW TO ADD A POST: 1) Make sure the post's category is listed in 'categories'. 2) Copy the '_postTemplate' object below, paste it inside the 'posts' array, and fill in the fields. 3) Set 'featured': true on exactly one post to pin it as the main story on the home page. 'content' is a list where each item is either a paragraph string or one of: {\"heading\": \"...\", \"subtitle\": \"...\"}, {\"image\": \"path.jpg\", \"caption\": \"...\", \"alt\": \"...\"}, {\"quote\": \"...\"}. Keys starting with an underscore are ignored by the site. TRANSLATIONS: add 'translations': {'pt': {title, subtitle, excerpt, content}} to a post to offer it in Portuguese; posts without a translation fall back to English. Site-wide strings for each language live under site.translations.",
   "_postTemplate": {
     "id": "unique-slug-for-this-post",
     "title": "",
@@ -82,11 +223,34 @@
     "excerpt": "",
     "content": [
       "First paragraph of the article.",
-      { "heading": "A section title", "subtitle": "Optional deck line" },
-      { "image": "images/folder/photo.jpg", "caption": "Optional caption", "alt": "Describe the image" },
+      {
+        "heading": "A section title",
+        "subtitle": "Optional deck line"
+      },
+      {
+        "image": "images/folder/photo.jpg",
+        "caption": "Optional caption",
+        "alt": "Describe the image"
+      },
       "Another paragraph.",
-      { "quote": "A pull quote." }
+      {
+        "quote": "A pull quote."
+      }
     ],
-    "featured": false
+    "featured": false,
+    "translations": {
+      "pt": {
+        "title": "",
+        "subtitle": "",
+        "excerpt": "",
+        "content": [
+          "Parágrafo traduzido…",
+          {
+            "heading": "Título de seção",
+            "subtitle": ""
+          }
+        ]
+      }
+    }
   }
 }

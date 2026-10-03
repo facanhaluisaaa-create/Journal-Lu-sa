@@ -14,23 +14,26 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main" id="skip-link">Skip to content</a>
 
-  <!-- Top bar: date + search -->
+  <!-- Top bar: date + language + search -->
   <div class="topbar">
     <div class="container topbar__inner">
       <span class="topbar__date" id="current-date"></span>
-      <form class="search" id="search-form" role="search" aria-label="Search the journal">
-        <input
-          type="search"
-          id="search-input"
-          class="search__input"
-          placeholder="Search articles…"
-          aria-label="Search articles"
-          autocomplete="off"
-        />
-        <button type="submit" class="search__btn" aria-label="Search">Search</button>
-      </form>
+      <div class="topbar__tools">
+        <div id="lang-slot"></div>
+        <form class="search" id="search-form" role="search" aria-label="Search the journal">
+          <input
+            type="search"
+            id="search-input"
+            class="search__input"
+            placeholder="Search articles…"
+            aria-label="Search articles"
+            autocomplete="off"
+          />
+          <button type="submit" class="search__btn" id="search-btn">Search</button>
+        </form>
+      </div>
     </div>
   </div>
 
@@ -75,9 +78,9 @@
   <!-- Newsletter -->
   <section class="newsletter">
     <div class="container newsletter__box">
-      <p class="kicker">Newsletter</p>
-      <h2 class="newsletter__title">The Journal, delivered.</h2>
-      <p class="newsletter__text">
+      <p class="kicker" id="nl-kicker">Newsletter</p>
+      <h2 class="newsletter__title" id="nl-title">The Journal, delivered.</h2>
+      <p class="newsletter__text" id="nl-text">
         New essays and notes, straight to your inbox. No noise — just the writing.
       </p>
       <form class="newsletter__form" id="newsletter-form" method="post" action="https://app.kit.com/forms/9933597/subscriptions">
@@ -90,7 +93,7 @@
           aria-label="Email address"
           required
         />
-        <button type="submit" class="newsletter__btn">Subscribe</button>
+        <button type="submit" class="newsletter__btn" id="nl-btn">Subscribe</button>
       </form>
       <p class="newsletter__feedback" id="newsletter-feedback" role="status" aria-live="polite"></p>
     </div>
